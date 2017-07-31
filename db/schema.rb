@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731183733) do
+ActiveRecord::Schema.define(version: 20170731220459) do
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "creditor_id"
+    t.integer  "debtor_id"
+    t.string   "line_item_name"
+    t.integer  "amount"
+    t.string   "comment"
+    t.boolean  "acknowledged_request_status"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["creditor_id"], name: "index_requests_on_creditor_id"
+    t.index ["debtor_id"], name: "index_requests_on_debtor_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
