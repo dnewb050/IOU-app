@@ -1,0 +1,47 @@
+<%= form_for(request) do |f| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :creditor_id %>
+    <%= f.number_field :creditor_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :debtor_id %>
+    <%= f.number_field :debtor_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :line_item_name %>
+    <%= f.text_field :line_item_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :acknowledged_request_status %>
+    <%= f.check_box :acknowledged_request_status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
