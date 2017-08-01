@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20170731220459) do
     t.integer  "creditor_id"
     t.integer  "debtor_id"
     t.string   "line_item_name"
-    t.integer  "amount"
+    t.decimal  "amount",                      precision: 8, scale: 2
     t.string   "comment"
     t.boolean  "acknowledged_request_status"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.index ["creditor_id"], name: "index_requests_on_creditor_id"
     t.index ["debtor_id"], name: "index_requests_on_debtor_id"
   end
