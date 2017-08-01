@@ -4,7 +4,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
       t.references :creditor
       t.references :debtor
       t.string :line_item_name
-      t.integer :amount
+      t.decimal :amount, precision: 8, scale: 2
       t.string :comment
       t.boolean :acknowledged_request_status
 
