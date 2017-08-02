@@ -12,6 +12,28 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+$( "#login_button" ).click(function() {
+  $( ".login_form" ).toggle(function() {
+  });
+  $( "#login_button").addClass('hide');
+  $( "#sign_up").addClass('hide');
+});
+
+$( "#return").click(function() {
+  setTimeout(function () {
+    $( "#login_button").removeClass('hide');
+    $( "#sign_up").removeClass('hide');
+  }, 800);
+
+  $( ".login_form" ).toggle(function() {
+  });
+
+});
+
+});
