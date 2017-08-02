@@ -33,7 +33,6 @@ class RequestsController < ApplicationController
               comment:                     request_params[:comment],
               acknowledged_request_status: 0 )
     request_params[:creditor_id] = @current_user.id
-    debugger
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
