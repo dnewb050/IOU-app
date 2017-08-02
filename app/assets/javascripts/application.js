@@ -12,11 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-<<<<<<< HEAD
-//= require jquery
-=======
 //= require jquery-ui
->>>>>>> style_changes
 //= require turbolinks
 //= require_tree .
 
