@@ -8,7 +8,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<% if current_page?(login_path)%>
+<body>
+  <div class="main">
+  <%= yield %>
+</div>
+</body>
+
+<% elsif current_page?(new_user_path) %>
+<body>
+  <div class="main">
+  <%= yield %>
+</div>
+</body>
+
+<% else %>
+
+<nav>
+  <ul>
+    <li class= "button">Request an IOU</li>
+    <li>Something Else</li>
+    <li>Something Something</li>
+  </ul>
+</nav>
+
   <body>
+    <div class="main">
     <%= yield %>
+  </div>
   </body>
 </html>
+<% end %>

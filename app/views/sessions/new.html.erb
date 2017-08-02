@@ -1,15 +1,35 @@
-<h1>Sessions#new</h1>
+<div class= "wrapper">
 
+<%=image_tag('logo.png')%>
+<p class= "notice"><%= notice %></p>
+
+<div class='form'>
+  <h3 id="login_button">
+    Login
+  </h3>
 <%= form_tag do %>
-  <div>
-    <%= label_tag :email, 'Email:' %>
-    <%= text_field_tag :email, params[:email] %>
+ <div class="login_form">
+  <div class>
+    <!-- <%= label_tag :email, 'Email' %> -->
+    <%= text_field_tag :email, params[:email], class: 'form_field', placeholder: "email" %>
   </div>
   <div>
-    <%= label_tag :password, 'Password:' %>
-    <%= text_field_tag :password, params[:password] %>
+    <!-- <%= label_tag :password, 'Password' %> -->
+    <%= text_field_tag :password, params[:password], class: 'form_field', placeholder: "password" %>
   </div>
   <div>
-    <%= submit_tag 'Login' %>
+    <%= submit_tag 'Login', class: 'button'%>
   </div>
+  <a class= "back" id="return">
+    ×
+  </a>
+</div>
+
   <% end %>
+  <div>
+
+    <%= link_to "Sign Up", new_user_path, id: "sign_up" %>
+
+</div>
+
+</div>

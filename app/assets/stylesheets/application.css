@@ -14,10 +14,20 @@
  *= require_self
  */
 
+<<<<<<< HEAD
 a {
    font-size: 1.5em;
    text-decoration: none;
    display: block;
+=======
+ /*
+*= require jquery-ui
+*/
+
+a {
+   font-size: 1.5em;
+   text-decoration: none;
+>>>>>>> style_changes
    color: #FFCC7a;
  }
 
@@ -33,3 +43,65 @@ a:visited {
 a:visited:hover {
   color: #f57c75;
 }
+<<<<<<< HEAD
+=======
+
+div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.button {
+  background-color: #f57c75;
+  border-style: none;
+  padding: 5px 20px 5px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.button:hover {
+   background-color: #FFCC7a;
+}
+
+*:focus {
+    outline: none;
+}
+
+.wrapper {
+  margin-top: 150px;
+}
+nav {
+  padding-bottom: 30px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: block;
+}
+
+nav li {
+  display: inline;
+  color: #f57c75;
+}
+
+.main {
+  margin: auto;
+
+}
+
+h1 {
+  color: #f57c75;
+  display: block;
+  text-align: center;
+}
+
+.form {
+  margin: auto;
+  text-align: center;
+  color: #f57c75;
+}
+>>>>>>> style_changes
