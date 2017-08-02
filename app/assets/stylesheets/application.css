@@ -56,6 +56,11 @@ div {
    background-color: #FFCC7a;
 }
 
+.button a {
+  color: white;
+  font-size: 1.2em;
+}
+
 *:focus {
     outline: none;
 }

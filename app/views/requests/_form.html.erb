@@ -19,20 +19,20 @@
 
   <div class="field">
     <%= f.label :line_item_name %>
-    <%= f.text_field :line_item_name %>
+    <%= f.text_field :line_item_name, class: 'form_field' %>
   </div>
 
   <div class="field">
     <%= f.label :amount %>
-    <%= f.number_field :amount %>
+    <%= f.number_field :amount, class: 'form_field' step: :any %>
   </div>
 
   <div class="field">
     <%= f.label :comment %>
-    <%= f.text_field :comment %>
+    <%= f.text_field :comment, class: 'form_field' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>

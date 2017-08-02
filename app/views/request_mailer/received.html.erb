@@ -1,5 +1,25 @@
-<h1>Request#received</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+</html>
 
-<p>
-  <%= @greeting %>, find me in app/views/request_mailer/received.html.erb
+<body>
+<h1>You've got an IOU.</h1>
+
+<p>Hello, there.</p>
+
+<p><%= User.find(@request.creditor_id).first_name %> has send you a request for the amount of <%= @request.amount %> for <=% @request.line_item %>
 </p>
+
+<%= @request.comment %>
+
+<p>If this sounds right to you, please let <%= User.find(@request.creditor_id).first_name %> know by clicking the following link:</p>
+
+<!-- (link to accept) -->
+
+<p>If you don't owe this money, click this link instead to reject the IOU</p>
+
+<!-- (link to reject) -->
+</body>
