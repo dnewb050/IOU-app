@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request_debtor, only: [:create]
 
   # GET /requests
   # GET /requests.json
@@ -24,8 +25,15 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
-
+    @request = Request.new(
+              creditor_id:                 @current_user.id,
+              debtor_id:                   @request_debtor.id,
+              line_item_name:              request_params[:line_item_name],
+              amount:                      request_params[:amount],
+              comment:                     request_params[:comment],
+              acknowledged_request_status: 0 )
+    request_params[:creditor_id] = @current_user.id
+    debugger
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
@@ -70,5 +78,9 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.require(:request).permit(:creditor_id, :debtor_id, :line_item_name, :amount, :comment, :acknowledged_request_status)
+    end
+
+    def set_request_debtor
+      @request_debtor = User.find_by(email: params[:debtor_email])
     end
 end
