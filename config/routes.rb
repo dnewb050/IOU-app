@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   resources :requests
+
+  put '/requests/:id/update_status', to: 'requests#update_status', as: 'request_status_update'
+
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :update_status]
   before_action :set_request_debtor, only: [:create]
 
   # GET /requests
@@ -68,6 +68,10 @@ class RequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+def update_status
+  @request.update_attribute(:acknowledged_request_status, 1)
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
