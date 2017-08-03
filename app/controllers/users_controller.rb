@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
   skip_before_action :authorize, only: [:create, :new, :activation, :edit, :update]
   skip_before_action :set_current_user, only: [:new, :create, :activation, :update]
+  after_action :remove_acivation_token, only: [:update, :create]
 
 
   # GET /users
@@ -83,6 +84,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+    end
+
+    # removes acivation_token from user after #update or #create
+    def remove_acivation_token
+      @user.activation_token = nil
+      debugger
+      @user.save
     end
 
 end
