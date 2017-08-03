@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:create, :new]
-  skip_before_action :set_current_user, only: [:new, :create]
+  skip_before_action :authorize, only: [:create, :new, :edit]
+  skip_before_action :set_current_user, only: [:new, :create, :edit]
 
   # GET /users
   # GET /users.json
@@ -21,6 +21,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if session[:user_id]
+      redirect_to user_url(session[:user_id])
+    end
   end
 
   # POST /users

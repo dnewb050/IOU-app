@@ -86,13 +86,10 @@ end
 
     def set_request_debtor
       unless User.find_by(email: params[:debtor_email])
-        @user = User.new(email:  params[:debtor_email])
-debugger
+        @user = User.new( email:    params[:debtor_email],
+                          password: "placeholder") # until registration
         @user.save
-debugger
-          #put mailer here
       end
-debugger
       @request_debtor = User.find_by(email: params[:debtor_email])
     end
 end

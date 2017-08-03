@@ -13,15 +13,18 @@
 <p><%= User.find(@request.creditor_id).first_name %> has send you a request for the amount of <%= @request.amount %> for <%= @request.line_item_name %>
 </p>
 
+<% unless @debtor.first_name %>
+<p>Seems like you don't already have an account, though. click
+<%= link_to "HERE", :controller => "users", :action => "edit", :only_path => false, :id => @debtor.id, :host => "localhost:3000" %>
+ to create an account and get started managing your IOUs.</p>
+<% end %>
+
 <p><%= User.find(@request.creditor_id).first_name %> wrote:
 <%= @request.comment %>
 </p>
 
 <p>If this sounds right to you, please let <%= User.find(@request.creditor_id).first_name %> know by clicking the following link:</p>
 
-<!-- (link to accept) -->
+<%= link_to "Acknowledge IOU", :controller => "requests", :action => "update_status", :only_path => false, :id => @request.id, :method => :put, :host => "localhost:3000" %>
 
-<p>If you don't owe this money, click this link instead to reject the IOU.</p>
-
-<!-- (link to reject) -->
 </body>
