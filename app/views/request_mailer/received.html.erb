@@ -15,7 +15,7 @@
 
 <% unless @debtor.first_name %>
 <p>Seems like you don't already have an account, though. click
-<%= link_to "HERE", :controller => "users", :action => "edit", :only_path => false, :id => @debtor.id, :host => "localhost:3000" %>
+<%= link_to "HERE", :controller => "users", :action => "activation", :only_path => false, :id => @debtor.id, :host => "localhost:3000", :activation_token => @debtor.activation_token %>
  to create an account and get started managing your IOUs.</p>
 <% end %>
 

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:create, :new, :edit]
-  skip_before_action :set_current_user, only: [:new, :create, :edit]
+  before_action :set_user, only: [:show, :edit, :destroy, :update]
+  skip_before_action :authorize, only: [:create, :new, :activation, :edit, :update]
+  skip_before_action :set_current_user, only: [:new, :create, :activation, :update]
+
 
   # GET /users
   # GET /users.json
@@ -21,8 +22,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  # GET /users/1/activation
+  def activation
     if session[:user_id]
       redirect_to user_url(session[:user_id])
+    elsif User.find(params[:id]).activation_token != params[:activation_token]
+      redirect_to login_path
     end
   end
 
@@ -47,6 +54,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -76,4 +84,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
     end
+
 end

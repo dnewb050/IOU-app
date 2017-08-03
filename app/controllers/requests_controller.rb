@@ -85,11 +85,12 @@ end
     end
 
     def set_request_debtor
-      unless User.find_by(email: params[:debtor_email])
-        @user = User.new( email:    params[:debtor_email],
-                          password: "placeholder") # until registration
+      unless User.find_by(email:              params[:debtor_email])
+        @user = User.new( email:              params[:debtor_email],
+                          password:           SecureRandom.hex(10))               # until registration its a random password
         @user.save
       end
       @request_debtor = User.find_by(email: params[:debtor_email])
     end
+
 end
