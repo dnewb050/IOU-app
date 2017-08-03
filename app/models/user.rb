@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
-  validates :first_name, :last_name,  presence: true, uniqueness: true
   has_secure_password
+  has_secure_token :activation_token
 
   has_many  :creditor_requests,
             :class_name => 'Request',

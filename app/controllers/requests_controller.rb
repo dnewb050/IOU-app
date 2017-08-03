@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :update_status]
   before_action :set_request_debtor, only: [:create]
 
   # GET /requests
@@ -69,6 +69,10 @@ class RequestsController < ApplicationController
     end
   end
 
+def update_status
+  @request.update_attribute(:acknowledged_request_status, 1)
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
@@ -81,6 +85,12 @@ class RequestsController < ApplicationController
     end
 
     def set_request_debtor
+      unless User.find_by(email:              params[:debtor_email])
+        @user = User.new( email:              params[:debtor_email],
+                          password:           SecureRandom.hex(10))               # until registration its a random password
+        @user.save
+      end
       @request_debtor = User.find_by(email: params[:debtor_email])
     end
+
 end

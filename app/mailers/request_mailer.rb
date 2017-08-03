@@ -7,6 +7,7 @@ class RequestMailer < ApplicationMailer
   #
   def received(request, debtor)
     @request = request
+    @debtor = debtor
 
     mail to: debtor.email
   end
