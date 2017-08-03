@@ -18,29 +18,84 @@
 *= require jquery-ui
 */
 
-a {
-   font-size: 1.5em;
-   text-decoration: none;
-   color: #FFCC7a;
- }
-
-a:hover {
-  background: none;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #f57c75;
 }
-
-a:visited {
-  color: #92D4E7;
+::-moz-placeholder { /* Firefox 19+ */
+  color: #f57c75;
 }
-
-a:visited:hover {
+:-ms-input-placeholder { /* IE 10+ */
+  color: #f57c75;
+}
+:-moz-placeholder { /* Firefox 18- */
   color: #f57c75;
 }
 
 div {
   margin-top: 5px;
   margin-bottom: 5px;
-  display: block;
+  display: table;
+}
+
+*:focus {
+    outline: none;
+}
+
+a:hover {
+  background: none;
+}
+
+.wrapper {
+  margin-top: 150px;
+}
+nav {
+  padding-bottom: 50px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: block;
+}
+
+nav li {
+  display: inline;
+  color: #f57c75;
+}
+
+nav a {
+  color: #f57c75;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #FFCC7a;
+}
+
+nav a:visited {
+  color: #f57c75;
+}
+
+.iou {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button a {
+  color: white !important;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.button a:visited {
+  color: white !important;
+  font-size: 1.2em;
+  text-decoration: none;
 }
 
 .button {
@@ -54,34 +109,6 @@ div {
 
 .button:hover {
    background-color: #FFCC7a;
-}
-
-.button a {
-  color: white;
-  font-size: 1.2em;
-}
-
-*:focus {
-    outline: none;
-}
-
-.wrapper {
-  margin-top: 150px;
-}
-nav {
-  padding-bottom: 30px;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    float: right;
-    display: block;
-}
-
-nav li {
-  display: inline;
-  color: #f57c75;
 }
 
 .main {
@@ -100,3 +127,26 @@ h1 {
   text-align: center;
   color: #f57c75;
 }
+
+.back {
+  padding-top: 5px;
+	display: block;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFCC7a;
+}
+
+.back:hover {
+  background: none;
+  color: #f57c75;
+}
+
+.back:visited {
+  color: #92D4E7;
+}
+
+.back:visited:hover {
+  color: #f57c75;
+}
+
+/*FOR BOXES*/

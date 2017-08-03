@@ -1,3 +1,35 @@
 // Place all the styles related to the Requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.data_block p {
+  display: block;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.data_block strong {
+  padding: 5px;
+  float: left;
+  width: 20%;
+}
+
+.data {
+  width: 200px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50px;
+  display: block;
+  margin: 15px 20px 15px 20px;
+  width: 75%;
+}
+
+.data_block {
+  background-color: #fef0eb;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 50px;
+  height: 200px;
+  width: 400px;
+  overflow: hidden;
+}

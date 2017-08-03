@@ -1,0 +1,43 @@
+<!-- <h1>Owed</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Who</th>
+    <th>What</th>
+    <th>Amount</th>
+    <th class="message">Message</th>
+    <th>Acknowledged?</th>
+  </tr>
+  </thead>
+
+<tbody>
+    <% @requests.each do |request| %>
+    <tr>
+      <td><%= request.debtor_id %></td>
+      <td><%= request.line_item_name %></td>
+      <td><%= request.amount %></td>
+      <td class="message"><%= request.comment %></td>
+      <td class="ack not_ack"><%= request.acknowledged_request_status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table> -->
+
+<h1>Owed</h1>
+
+   <% @requests.each do |request| %>
+   <div class="request_block">
+   <h2><%= number_to_currency(request.amount) %></h2>
+   <div class="line_id">
+     <p><span class="for_by">by </span><%= request.debtor_id %></p> <p><span class="for_by">for </span><%= request.line_item_name %></p>
+   </div>
+   <p class="req_msg"><%= request.comment %></p>
+   <div class="status">
+
+   <p class="ack not_ack">Acknowledged: <%= request.acknowledged_request_status %></p>
+   <p class="pay yes_pay">Payment Received: true</p>
+   </div>
+   </div>
+  <% end %>
