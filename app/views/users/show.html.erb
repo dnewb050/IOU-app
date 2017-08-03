@@ -3,21 +3,21 @@
 
 <p>
   <strong>Email</strong>
-  <span><%= @user.email %></span>
+  <span class="user_field"><%= @user.email %></span>
 </p>
 
 <p>
   <strong>First name</strong>
-  <span><%= @user.first_name %></span>
+  <span class="user_field"><%= @user.first_name %></span>
 </p>
 
 <p>
   <strong>Last name</strong>
-  <span><%= @user.last_name %></span>
+  <span class="user_field"><%= @user.last_name %></span>
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user), class: "button"%>
+<div class="button"><%= link_to 'Edit', edit_user_path(@user)%></div>
    <a class= "back" id="return">
      ×
    </a>

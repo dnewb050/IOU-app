@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   put '/requests/:id/update_status', to: 'requests#update_status', as: 'request_status_update'
   get '/users/:id/activation', to: 'users#activation', as: 'user_activation'
 
+  get 'users/:id/debtor', to: 'users#debtor', as: 'debtor_requests'
+  get 'users/:id/creditor', to: 'users#creditor', as: 'creditor_requests'
+
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
 end

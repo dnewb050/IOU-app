@@ -37,3 +37,9 @@ $( "#return").click(function() {
 });
 
 });
+
+$(document).ready(function () {
+          if (!$.browser.webkit) {
+              $('.req_msg').html();
+          }
+      });

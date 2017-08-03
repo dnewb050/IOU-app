@@ -36,11 +36,6 @@ img {
 	overflow: hidden;
 }
 
-.back {
-  padding-top: 5px;
-	display: block;
-}
-
 label {
   color: #f57c75;
   size: 1em;
@@ -57,7 +52,102 @@ p > strong {
 	color: #f57c75;
 }
 
-span {
+.user_field {
 	display: block;
 	font-size: 1.2em;
+}
+
+// FOR BOXES
+
+.request_block {
+	background-color: #fef0eb;
+	margin-top: 10px;
+	text-align: center;
+	width: 40%;
+	border-radius: 50px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.request_block p {
+	width: auto;
+
+}
+
+.request_block h2 {
+	color: #2dcca1;
+}
+
+.req_msg {
+	overflow: auto;
+	height: 100px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+
+
+.status p {
+	margin-bottom: 10px;
+}
+
+.yes_ack {
+	background-color: #92e7d0;
+	border-radius: 50px;
+	float: left;
+	padding: 5px 10px 5px 10px;
+}
+
+.not_ack {
+	background-color: #f3655d;
+	color: white;
+	border-radius: 50px;
+	float: left;
+	padding: 5px 10px 5px 10px;
+}
+
+.yes_pay {
+	background-color: #92e7d0;
+	border-radius: 50px;
+	float: right;
+	padding: 5px 10px 5px 10px;
+}
+
+.not_pay {
+	background-color: #f3655d;
+	color: white;
+	border-radius: 50px;
+	float: right;
+	padding: 5px 10px 5px 10px;
+}
+
+.line_id {
+	font-weight: bold;
+	display: inline-flex;
+}
+
+.for_by {
+	color: #f57c75;
+}
+
+// ::-webkit-scrollbar {
+//     display: none;
+// }
+
+.req_msg::-webkit-scrollbar-track
+{
+
+	background-color: white;
+}
+
+.req_msg::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: white;
+}
+
+.req_msg::-webkit-scrollbar-thumb
+{
+	background-color: #fef0eb;
+	border: 2px solid white;
 }
