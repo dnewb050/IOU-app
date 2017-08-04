@@ -1,15 +1,19 @@
 <h1>Welcome to IOU!</h1>
 
-<div>
-
-
-<h2>Total Owed</h2>
+<div class="totals">
+<div id="left">
+<h1><%= number_to_currency(@owe_requests.map {|request| request['amount']}.reduce(0, :+)) %></h1>
+<h3>Total Owed</h3>
 </div>
 
-<div>
-<h2>Total Outstanding</h2>
+<div id="right">
+<h1><%= number_to_currency(@owed_requests.map {|request| request['amount']}.reduce(0, :+)) %></h1>
+<h3>Total Outstanding</h3>
+</div>
 </div>
 
+
+<div id="user_info">
 <p id="notice"><%= notice %></p>
 <div class= "data_block">
 <div>
@@ -33,5 +37,6 @@
 
 <div style="width: 175px;">
 <div class="button left"><%= link_to 'Edit', edit_user_path(@user)%></div>
-<div class="right"><%= button_to 'Delete', {method: 'DELETE', action: 'destroy'}, {class: 'button'} %></div>
+<div class="right"><%= button_to 'Delete', @current_user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button'%></div>
 <div>
+</div>

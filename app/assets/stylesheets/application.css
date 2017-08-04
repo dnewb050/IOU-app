@@ -51,17 +51,23 @@ a:hover {
 nav {
   padding-bottom: 50px;
 }
+
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
     float: right;
-    display: block;
+    margin: 10px;
+}
+
+nav ul#logout {
+  float: left;
+  margin: 10px;
 }
 
 nav li {
   display: inline;
   color: #f57c75;
+
 }
 
 nav a {
@@ -70,12 +76,14 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
-  color: #FFCC7a;
-}
+
 
 nav a:visited {
   color: #f57c75;
+}
+
+nav a:hover {
+  color: #FFCC7a;
 }
 
 .iou {
@@ -99,7 +107,7 @@ a {
 }
 
 .button {
-  background-color: #f57c75;
+  background-color: #f0382e;
   border-style: none;
   padding: 5px 20px 5px 20px;
   border-radius: 50px;
@@ -109,6 +117,12 @@ a {
 
 .button:hover {
    background-color: #FFCC7a;
+}
+
+#logout_btn a {
+  border: solid 2px #f57c75;
+  padding: 5px 20px 5px 20px;
+  border-radius: 50px;
 }
 
 .main {

@@ -155,3 +155,45 @@ p > strong {
 .left {
 	float: left;
 }
+
+//TOTALS
+
+.totals {
+	width: 500px;
+	display: inline;
+	position: flex;
+}
+
+.totals h1 {
+	font-size: 4em;
+	margin-bottom: 10px;
+}
+
+.totals h3 {
+	line-height: 18px;
+	position: absolute;
+}
+
+#left {
+	margin-right: 20px;
+	margin-left: 0;
+	float: left;
+}
+
+#right {
+	margin-left: 20px;
+	margin-right: 0;
+	float: right;
+}
+
+#left h1{
+	color: #2dcca1;
+}
+
+#right h1{
+	color: #f3655d;
+}
+
+#user_info {
+	margin-top: 150px;
+}

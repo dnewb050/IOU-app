@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @owe_requests= Request.where(creditor_id: @current_user.id)
+    @owed_requests= Request.where(debtor_id: @current_user.id)
   end
 
   # GET /users/new

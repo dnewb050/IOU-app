@@ -18,6 +18,9 @@
 <% else %>
 
 <nav>
+  <ul id="logout">
+    <li><%= link_to "Log Out",  sessions_destroy_path(@current_user, id: 'logout_btn') %></li>
+  </ul>
   <ul>
     <li class= "button"><span class="iou"><%=link_to "Request an IOU", new_request_path%></span></li>
     <li><%=link_to "Owed", creditor_requests_path(@current_user) %></li>
