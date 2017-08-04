@@ -19,8 +19,8 @@
 
 <nav>
   <ul id="logout">
-    <li><%=link_to "Log out", sessions_destroy_path %></li>
-    <li><%= link_to "Home", @current_user %></li>
+    <li id="logout_btn"><%=link_to "Log out", sessions_destroy_path %></li>
+    <li class="button"><%= link_to "Home", @current_user %></li>
   </ul>
   <ul>
     <li class= "button"><span class="iou"><%=link_to "Request an IOU", new_request_path%></span></li>

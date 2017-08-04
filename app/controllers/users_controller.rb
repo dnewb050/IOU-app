@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   end
 
   def debtor
-    @requests= Request.where(creditor_id: @current_user.id)
+    @requests= Request.where(debtor_id: @current_user.id)
   end
 
   private
