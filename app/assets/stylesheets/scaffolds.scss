@@ -5,13 +5,17 @@ body {
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+  border-radius: 5px;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+}
+
+ul {
+  padding: 0;
 }
 
 pre {
@@ -51,36 +55,43 @@ div {
 
 #notice {
   color: green;
+  text-align: center;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
+  padding: 5px;
+  background-color: #c8e9f3;
   display: table;
+  border-radius: 50px;
+  color: white;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  width: auto;
+  border: 2px solid #92D4E7;
+  border-radius: 10px;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #e9f6fa;
+  overflow: hidden;
 
   h2 {
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
-    background-color: #c00;
+    background-color: #92D4E7;
     color: #fff;
+
   }
 
   ul li {
     font-size: 12px;
-    list-style: square;
+    list-style: none;
+    text-align: center;
   }
 }
 

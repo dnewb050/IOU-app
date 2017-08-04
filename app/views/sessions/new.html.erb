@@ -1,7 +1,7 @@
 <div class= "wrapper">
 
 <%=image_tag('logo.png')%>
-<!-- <p class= "notice"><%= notice %></p> -->
+<p class= "notice"><%= notice %></p>
 
 <div class='form'>
   <h3 id="login_button">
@@ -15,7 +15,7 @@
   </div>
   <div>
     <!-- <%= label_tag :password, 'Password' %> -->
-    <%= text_field_tag :password, params[:password], class: 'form_field', placeholder: "password" %>
+    <%= password_field_tag :password, params[:password], class: 'form_field', placeholder: "password" %>
   </div>
   <div>
     <%= submit_tag 'Login', class: 'button'%>
