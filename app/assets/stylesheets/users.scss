@@ -64,14 +64,9 @@ p > strong {
 	margin-top: 10px;
 	text-align: center;
 	width: 40%;
-	border-radius: 50px;
+	border-radius: 10px;
 	height: 200px;
 	overflow: hidden;
-}
-
-.request_block p {
-	width: auto;
-
 }
 
 .request_block h2 {
@@ -83,6 +78,7 @@ p > strong {
 	height: 100px;
 	background-color: white;
 	border-radius: 10px;
+	width: 400px;
 }
 
 

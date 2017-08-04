@@ -1,1 +1,20 @@
 <h1>Outstanding</h1>
+
+   <% @requests.each do |request| %>
+   <div class="request_block">
+   <h2><%= number_to_currency(request.amount) %></h2>
+   <div class="line_id">
+     <p><span class="for_by">by User</span><%= request.debtor_id %></p> <p><span class="for_by">for </span><%= request.line_item_name %></p>
+   </div>
+   <p class="req_msg"><%= request.comment %></p>
+   <div class="status">
+
+     <p class="<%= request.acknowledged_request_status ? 'yes_ack' : 'not_ack' %>"> Acknowledged: <%= request.acknowledged_request_status %></p>
+     <% if Payment.find_by(request_id: request.id) == nil %>
+      <p class="yes_pay not_pay">Payment Received: false</p>
+      <% else %>
+     <p class="<%= Payment.find_by(request_id: request.id).acknowledged_payment_status ? 'yes_pay' : 'not_pay' %>">Payment Received: <%= Payment.find_by(request_id: request.id).acknowledged_payment_status %></p>
+     <% end %>
+      </div>
+      </div>
+  <% end %>
