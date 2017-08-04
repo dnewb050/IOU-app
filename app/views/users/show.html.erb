@@ -1,26 +1,37 @@
-<div class= "form">
-<p id="notice"><%= notice %></p>
+<h1>Welcome to IOU!</h1>
 
-<p>
-  <strong>Email</strong>
-  <span class="user_field"><%= @user.email %></span>
-</p>
-
-<p>
-  <strong>First name</strong>
-  <span class="user_field"><%= @user.first_name %></span>
-</p>
-
-<p>
-  <strong>Last name</strong>
-  <span class="user_field"><%= @user.last_name %></span>
-</p>
+<div>
 
 
-<div class="button"><%= link_to 'Edit', edit_user_path(@user)%></div>
-   <a class= "back" id="return">
-     ×
-   </a>
-
-
+<h2>Total Owed</h2>
 </div>
+
+<div>
+<h2>Total Outstanding</h2>
+</div>
+
+<p id="notice"><%= notice %></p>
+<div class= "data_block">
+<div>
+    <h1>Account Info</h1>
+<p>
+  <strong>Email:</strong>
+  <span class="data"><%= @user.email %></span>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <span class="data"><%= @user.first_name %></span>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <span class="data"><%= @user.last_name %></span>
+</p>
+</div>
+</div>
+
+<div style="width: 175px;">
+<div class="button left"><%= link_to 'Edit', edit_user_path(@user)%></div>
+<div class="right"><%= button_to 'Delete', {method: 'DELETE', action: 'destroy'}, {class: 'button'} %></div>
+<div>

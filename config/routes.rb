@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  root :to => redirect('/login')
 
   controller :sessions do
     get 'login' => :new
