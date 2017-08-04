@@ -8,6 +8,6 @@ class Request < ApplicationRecord
   belongs_to  :debtor,
               :class_name => 'User',
               :foreign_key => 'debtor_id'
-  has many    :payments
+  has_one    :payments
 
 end

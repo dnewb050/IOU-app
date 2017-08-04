@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
               amount:                      request_params[:amount],
               comment:                     request_params[:comment],
               acknowledged_request_status: 0 )
-    request_params[:creditor_id] = @current_user.id
+    request_params[:creditor_id] = @current_user.id #### WTF is this here for ?
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
@@ -71,6 +71,8 @@ class RequestsController < ApplicationController
 
 def update_status
   @request.update_attribute(:acknowledged_request_status, 1)
+  @request.save
+  redirect_to @request
 end
 
   private

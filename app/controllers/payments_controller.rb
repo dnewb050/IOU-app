@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: :mark_as_paid
+  before_action :set_payment, only: [:show, :edit, :update, :destroy, :mark_as_paid]
 
   # GET /payments
   # GET /payments.json
@@ -24,17 +25,34 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    # @payment = Payment.new(
+    #                         request_id:              params[:request_id],
+    #                         amount:                  @request.amount,
+    #                         acknowledged_payment_status:    false)
+    # respond_to do |format|
+    #   if @payment.save
+    #     format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+    #     format.json { render :show, status: :created, location: @payment }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @payment.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
 
-    respond_to do |format|
-      if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
-      else
-        format.html { render :new }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
-      end
-    end
+  def mark_as_paid
+    @payment = Payment.new(
+                            request_id:              params[:request_id],
+                            amount:                  @request.amount,
+                            acknowledged_payment_status:    false)
+    @payment.save
+    redirect_to @request
+  end
+
+  def update_status
+    @payment.update_attribute(:acknowledged_payment_status, 1)
+    @payment.save
+    redirect_to @request
   end
 
   # PATCH/PUT /payments/1
@@ -64,11 +82,16 @@ class PaymentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_payment
-      @payment = Payment.find(params[:id])
+      @payment = Payment.find_by(request_id: @request.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
       params.require(:payment).permit(:request_id, :amount, :acknowledged_payment_status)
     end
+
+    def set_request
+      @request = Request.find(params[:request_id])
+    end
+
 end

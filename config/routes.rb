@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
-  resources :requests
+  resources :requests do
+    resources :payments
+  end
   put '/requests/:id/update_status', to: 'requests#update_status', as: 'request_status_update'
 
   resources :users
@@ -21,4 +23,7 @@ Rails.application.routes.draw do
   get 'users/:id/creditor', to: 'users#creditor', as: 'creditor_requests'
 
   resources :payments
+  post '/requests/:request_id/mark_as_paid', to: 'payments#mark_as_paid', as: 'request_mark_as_paid'
+  put '/requests/:request_id/update_status', to: 'payments#update_status', as: 'payments_status_update'
+
 end

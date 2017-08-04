@@ -28,4 +28,9 @@
 </p>
 </div>
 </div>
+  <% if @current_user.id == @request.debtor_id %>
+    <%= link_to("mark as paid", request_mark_as_paid_path(params[:id]), :method => :post) %>
+  <% elsif @current_user.id == @request.creditor_id && Payment.find_by(request_id: params[:id]) %>
+      <%= link_to("Acknowledge payment", payments_status_update_url(request_id: params[:id]), :method => :put) %>
+  <% end %>
 <%= link_to 'x', requests_path, class: 'back'%>
