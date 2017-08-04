@@ -24,6 +24,6 @@ Rails.application.routes.draw do
 
   resources :payments
   post '/requests/:request_id/mark_as_paid', to: 'payments#mark_as_paid', as: 'request_mark_as_paid'
-  put '/requests/:request_id/update_status', to: 'payments#update_status', as: 'payments_status_update'
+  put '/requests/:request_id/payments/:payment_id/update_status', to: 'payments#update_status', as: 'payments_status_update'
 
 end

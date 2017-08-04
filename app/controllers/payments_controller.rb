@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
-  before_action :set_request, only: :mark_as_paid
-  before_action :set_payment, only: [:show, :edit, :update, :destroy, :mark_as_paid]
+  before_action :set_request, only: [:mark_as_paid, :update_status]
+  before_action :set_payment, only: [:show, :edit, :update, :destroy, :mark_as_paid, :update_status]
 
   # GET /payments
   # GET /payments.json
@@ -81,6 +81,10 @@ class PaymentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_request
+      @request = Request.find(params[:request_id])
+    end
+
     def set_payment
       @payment = Payment.find_by(request_id: @request.id)
     end
@@ -88,10 +92,6 @@ class PaymentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
       params.require(:payment).permit(:request_id, :amount, :acknowledged_payment_status)
-    end
-
-    def set_request
-      @request = Request.find(params[:request_id])
     end
 
 end

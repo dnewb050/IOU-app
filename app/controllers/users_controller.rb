@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :destroy, :update, :creditor, :debtor]
   skip_before_action :authorize, only: [:create, :new, :activation, :edit, :update]
-  skip_before_action :set_current_user, only: [:new, :create, :activation, :update]
+  skip_before_action :set_current_user, only: [:new, :create, :activation]
   after_action :remove_acivation_token, only: [:update, :create]
 
   # GET /users
@@ -71,8 +71,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    session[:user_id] = nil
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to login_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
