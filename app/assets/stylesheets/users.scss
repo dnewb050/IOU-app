@@ -130,10 +130,6 @@ p > strong {
 	color: #f57c75;
 }
 
-// ::-webkit-scrollbar {
-//     display: none;
-// }
-
 .req_msg::-webkit-scrollbar-track
 {
 
@@ -150,4 +146,12 @@ p > strong {
 {
 	background-color: #fef0eb;
 	border: 2px solid white;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
 }

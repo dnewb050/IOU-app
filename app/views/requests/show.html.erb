@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <div class= "data_block">
+<div>
 <p>
-  <strong>Creditor:</strong>
-  <span class="data"><%= @request.creditor_id %></span>
-</p>
-
-<p>
-  <strong>Debtor:</strong>
+  <strong>By:</strong>
   <span class="data"><%= @request.debtor_id %></span>
 </p>
 
 <p>
-  <strong>Line item name:</strong>
+  <strong>For:</strong>
   <span class="data"><%= @request.line_item_name %></span>
 </p>
 
 <p>
   <strong>Amount:</strong>
-  <span class="data"><%= @request.amount %></span>
+  <span class="data"><%= number_to_currency(@request.amount) %></span>
 </p>
 
 <p>
   <strong>Comment:</strong>
-  <span class="data"><%= @request.comment %></span>
+  <span class="data"><%= truncate(@request.comment, length: 20) %></span>
 </p>
 
 <p>
   <strong>Acknowledged:</strong>
   <span class="data"><%= @request.acknowledged_request_status %></span>
 </p>
+</div>
 </div>
 <%= link_to 'x', requests_path, class: 'back'%>

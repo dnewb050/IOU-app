@@ -97,7 +97,6 @@ class UsersController < ApplicationController
     # removes acivation_token from user after #update or #create
     def remove_acivation_token
       @user.activation_token = nil
-      debugger
       @user.save
     end
 

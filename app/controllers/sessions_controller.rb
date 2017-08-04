@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   skip_before_action :set_current_user, only: [:create, :new]
 
   def new
+    if session[:user_id]
+      redirect_to user_url(session[:user_id])
+    end
   end
 
   def create
